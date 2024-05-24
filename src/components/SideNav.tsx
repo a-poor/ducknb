@@ -61,10 +61,10 @@ export function SideNavPrimary({
 }) {
   return (
     <aside className="flex-shrink-0 px-3 py-2 flex flex-col items-center space-y-2">
-      <button className="" aria-label="Go Home">
+      <div className="pb-2">
         {/* Replace with Logo */}
         <div className="w-10 h-10 rounded-full bg-black" />
-      </button>
+      </div>
 
       <SideNavButton
         label="Notebooks"
@@ -120,7 +120,7 @@ export function SideNavPrimary({
 
 export function SideNavSecondary() {
   return (
-    <aside className="flex-shrink-0 px-3 py-2 flex flex-col items-center space-y-2 w-24"></aside>
+    <aside className="flex-shrink-0 px-3 py-2 flex flex-col items-center space-y-2 w-64"></aside>
   );
 }
 

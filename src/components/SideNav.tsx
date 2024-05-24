@@ -1,6 +1,6 @@
 import { useState, ReactNode } from "react";
 import { Separator } from "@/components/ui/separator";
-import { NotebookText, Settings, Table, Plug2 } from "lucide-react";
+import { NotebookText, Settings, Table, Plug2, Search } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -11,6 +11,7 @@ export enum NavTabs {
   Notebooks,
   DataSources,
   Connections,
+  Search,
   Settings,
 }
 
@@ -99,6 +100,17 @@ export function SideNavPrimary({
       >
         <Plug2 className="h-6 w-6" />
       </SideNavButton>
+      <SideNavButton
+        label="Search"
+        isActive={activeTab === NavTabs.Search}
+        onClick={() =>
+          activeTab === NavTabs.Search
+            ? setActiveTab(null)
+            : setActiveTab(NavTabs.Search)
+        }
+      >
+        <Search className="h-6 w-6" />
+      </SideNavButton>
 
       <div className="flex-grow" />
       <Separator />
@@ -129,8 +141,13 @@ export function SideNav() {
   return (
     <>
       <SideNavPrimary activeTab={activeTab} setActiveTab={setActiveTab} />
-      {activeTab === null ? null : <SideNavSecondary />}
       <Separator orientation="vertical" />
+      {activeTab === null ? null : (
+        <>
+          <SideNavSecondary />
+          <Separator orientation="vertical" />
+        </>
+      )}
     </>
   );
 }

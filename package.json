@@ -10,6 +10,8 @@
     "tauri": "tauri"
   },
   "dependencies": {
+    "@codemirror/lang-sql": "^6.6.4",
+    "@editorjs/editorjs": "^2.29.1",
     "@hookform/resolvers": "^3.4.2",
     "@radix-ui/react-collapsible": "^1.0.3",
     "@radix-ui/react-dialog": "^1.0.5",
@@ -24,6 +26,8 @@
     "@radix-ui/react-tooltip": "^1.0.7",
     "@tanstack/react-table": "^8.17.3",
     "@tauri-apps/api": "^1",
+    "@uiw/codemirror-theme-dracula": "^4.22.1",
+    "@uiw/react-codemirror": "^4.22.1",
     "@xstate/react": "^4.1.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
@@ -32,6 +36,7 @@
     "next-themes": "^0.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-editor-js": "^2.1.0",
     "react-hook-form": "^7.51.5",
     "react-resizable-panels": "^2.0.19",
     "sonner": "^1.4.41",

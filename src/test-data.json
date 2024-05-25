@@ -40,5 +40,89 @@
     "name": "Ann Johnson",
     "email": null,
     "isCool": true
+  },
+  {
+    "id": 1,
+    "name": "John Doe",
+    "email": "jdoe@example.com",
+    "isCool": true
+  },
+  {
+    "id": 2,
+    "name": "Jane Doe",
+    "email": "jdoe@email.com",
+    "isCool": false
+  },
+  {
+    "id": 3,
+    "name": "Jim Doe",
+    "email": "doej@gmail.biz",
+    "isCool": false
+  },
+  {
+    "id": 4,
+    "name": "Jill Doe",
+    "email": "jill.doe@yahoo.io",
+    "isCool": true
+  },
+  {
+    "id": 5,
+    "name": "Tom Smith",
+    "email": "tsmith@hotmail.com",
+    "isCool": null
+  },
+  {
+    "id": 6,
+    "name": "Sally Smith",
+    "email": "ssmith42@yahoo.answers",
+    "isCool": true
+  },
+  {
+    "id": 7,
+    "name": "Ann Johnson",
+    "email": null,
+    "isCool": true
+  },
+  {
+    "id": 1,
+    "name": "John Doe",
+    "email": "jdoe@example.com",
+    "isCool": true
+  },
+  {
+    "id": 2,
+    "name": "Jane Doe",
+    "email": "jdoe@email.com",
+    "isCool": false
+  },
+  {
+    "id": 3,
+    "name": "Jim Doe",
+    "email": "doej@gmail.biz",
+    "isCool": false
+  },
+  {
+    "id": 4,
+    "name": "Jill Doe",
+    "email": "jill.doe@yahoo.io",
+    "isCool": true
+  },
+  {
+    "id": 5,
+    "name": "Tom Smith",
+    "email": "tsmith@hotmail.com",
+    "isCool": null
+  },
+  {
+    "id": 6,
+    "name": "Sally Smith",
+    "email": "ssmith42@yahoo.answers",
+    "isCool": true
+  },
+  {
+    "id": 7,
+    "name": "Ann Johnson",
+    "email": null,
+    "isCool": true
   }
 ]

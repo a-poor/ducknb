@@ -11,14 +11,39 @@ import { Separator } from "@/components/ui/separator";
 import { PlayCursorIcon } from "@/components/icons";
 import IconButton from "@/components/IconButton";
 import { Play, PanelRight, Bot, Square } from "lucide-react";
+import {
+  ColumnDef,
+  flexRender,
+  getCoreRowModel,
+  useReactTable,
+} from "@tanstack/react-table";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import testData from "@/test-data.json";
 
 const DARK_MODE = false;
 
 const defaultCode = `-- Write your SQL query here
 
+WITH filtered_users AS (
+  SELECT *
+  FROM users
+    JOIN addresses ON users.id = addresses.user_id
+  WHERE 
+    age > 18
+    AND city = 'New York'
+);
+
 SELECT * 
-FROM users;
+FROM filtered_users
+LIMIT 20;
 `;
 
 export function QueryEditor({ height }: { height?: number }) {
@@ -38,7 +63,75 @@ export function QueryEditor({ height }: { height?: number }) {
 }
 
 export function QueryOutput() {
-  return <div className="" />;
+  const columns = [
+    {
+      accessorKey: "id",
+      header: "ID",
+    },
+    {
+      accessorKey: "name",
+      header: "Name",
+    },
+    {
+      accessorKey: "email",
+      header: "Email",
+    },
+    {
+      accessorKey: "isCool",
+      header: "Is Cool",
+    },
+  ];
+  const table = useReactTable({
+    data: testData,
+    columns,
+    getCoreRowModel: getCoreRowModel(),
+  });
+  return (
+    <div>
+      <Table className="overflow-y-auto">
+        <TableHeader>
+          {table.getHeaderGroups().map((headerGroup) => (
+            <TableRow key={headerGroup.id}>
+              {headerGroup.headers.map((header) => {
+                return (
+                  <TableHead key={header.id}>
+                    {header.isPlaceholder
+                      ? null
+                      : flexRender(
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
+                  </TableHead>
+                );
+              })}
+            </TableRow>
+          ))}
+        </TableHeader>
+        <TableBody className="overflow-y-auto">
+          {table.getRowModel().rows?.length ? (
+            table.getRowModel().rows.map((row) => (
+              <TableRow
+                key={row.id}
+                data-state={row.getIsSelected() && "selected"}
+              >
+                {row.getVisibleCells().map((cell) => (
+                  <TableCell key={cell.id}>
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </TableCell>
+                ))}
+              </TableRow>
+            ))
+          ) : (
+            <TableRow>
+              <TableCell colSpan={columns.length} className="h-24 text-center">
+                No results.
+              </TableCell>
+            </TableRow>
+          )}
+        </TableBody>
+      </Table>
+    </div>
+  );
 }
 
 export default function QueryConsolePage() {
@@ -89,10 +182,10 @@ export default function QueryConsolePage() {
               </ResizablePanel>
             </ResizablePanelGroup>
           </ResizablePanel>
-          <ResizableHandle withHandle />
+          {/* <ResizableHandle withHandle />
           <ResizablePanel>
             <div className="h-full">Test</div>
-          </ResizablePanel>
+          </ResizablePanel> */}
         </ResizablePanelGroup>
       </div>
     </div>

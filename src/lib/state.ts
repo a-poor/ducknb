@@ -1,3 +1,11 @@
 import { createMachine } from 'xstate';
 
-export const navMachine = createMachine({});
+type StateContext = {
+    navTab: "" | null;
+};
+
+export const stateMachine = createMachine({
+    context: {
+        navTab: null,
+    } as StateContext,
+});
